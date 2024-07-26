@@ -1,0 +1,21 @@
+.library{
+    width:80%;
+    margin:10px auto;
+    display: grid;
+    padding-top:30px;
+  column-gap: 50px;
+  row-gap: 50px;
+ 
+  grid-template-columns: 1fr 2fr 3fr;
+
+}
+
+.headerBg{
+    background-color:rgb(18, 55, 51)
+}
+
+.l-head{
+    font-size:1.25rem;
+    font-weight:900;
+}
+

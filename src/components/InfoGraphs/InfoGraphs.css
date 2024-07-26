@@ -1,0 +1,13 @@
+.infograph-wrapper{
+    display:block;
+    padding:20px;
+    border:1px solid #CCC;
+    text-align:center;
+    width:100%;
+}
+.infograph-wrapper .title{
+    margin-top:20px;
+    font-size:1.5rem;
+    font-weight:400;
+    width:100%;
+}

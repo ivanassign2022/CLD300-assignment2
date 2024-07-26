@@ -1,0 +1,21 @@
+.landingFlex{
+    margin:15px;
+    width:350px;
+}
+.landingFlex .next-card-img-title{
+    height:300px;
+}
+
+
+@media screen and (max-width: 960px){
+    .landingFlex{
+        margin:15px;
+        width:100%;
+    }
+}
+.ml-4{
+    margin-left:1rem !important;
+}
+.mt-8{
+    margin-top: 2rem !important;
+}

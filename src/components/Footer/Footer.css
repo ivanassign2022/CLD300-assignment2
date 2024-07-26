@@ -1,0 +1,18 @@
+.footer{
+    border-top:1px solid #b99a45;
+    position:fixed;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    bottom:0;
+    height:40px;
+    background:#d5c28f;
+    z-index:1000;
+    width:100%;
+    left:0;
+    font-size:0.8rem;
+    color:#FFF;
+}
+.footer div {
+    margin: 0 10px;
+}
