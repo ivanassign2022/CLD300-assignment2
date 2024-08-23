@@ -5,7 +5,7 @@
  * 
  */
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import * as React from 'react';
 
 // Remarks
@@ -16,7 +16,6 @@ import * as React from 'react';
 
 // Template Components from Mui
 import {Button, TextField} from '@mui/material';
-import hero from './assets/hero.jpg'
 
 
 import NextRating from './components/NextRating/NextRating';
@@ -27,6 +26,8 @@ import NextCard from './components/NextCard/NextCard';
 import NextModal from './components/NextModal/NextModal';
 import Wrapper from './components/Wrapper/Wrapper';
 
+
+
 import './css/Ladning.css';
 
 // CSS - Global
@@ -34,11 +35,39 @@ import './css/Ladning.css';
 
 function Landing() {
 
+  
+
   // const [count, setCount] = useState(0)
   const about = 'Next AI is at the forefront of artificial intelligence innovation. We develop advanced AI solutions that enhance efficiency and drive value across industries. Our expertise in machine learning and data analytics empowers businesses to unlock insights and automate processes. Committed to ethical AI, we aim to shape a smarter, more connected future.';
 
   const story = 'In an era of rapid AI advancement, a startup quickly rose to prominence with its innovative algorithms and customer-focused solutions. This success story highlights how technology transforms industries and paves the way for the future.';
   
+  const heros = [
+    {
+      src:'/assets/hero/hero.jpg',
+      title:'Hero'
+    },
+    {
+      src:'/assets/hero/hero1.jpg',
+      title:'Hero1'
+    },
+    {
+      src:'/assets/hero/hero2.jpg',
+      title:'Hero2'
+    }
+  ]
+  const heroSize = 3;
+  const [heroidx, setHero] = useState(0)
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setHero((i) => (i + 1) % heroSize);
+      // setStep((i) => i + 1);
+    }, 7000);
+    return () => {
+      clearInterval(interval);
+    };
+  }, [heroSize]);
+
   const cards = [
     {
       key:0, 
@@ -46,7 +75,8 @@ function Landing() {
       imgtitle:'Smart Inspection',
       cardTitle:'Smart Inspection',
       cardBody:'Smart Inspection is an AI-driven quality control project aimed at revolutionizing the manufacturing industry through advanced inspection technologies.',
-      href:'#'
+      href:'#',
+      scale: 1.2
 
     },
     {
@@ -55,7 +85,8 @@ function Landing() {
       imgtitle:'Next mathematician',
       cardTitle:'Next mathematician',
       cardBody:'Next mathematician  aims to develop an AI-powered platform that personalizes math training for students, enhancing their learning experience and improving their skills.',
-      href:'#'
+      href:'#',
+      scale: 1.3
     },
     {
       key:2, 
@@ -63,7 +94,8 @@ function Landing() {
       imgtitle:'My Travel planner',
       cardTitle:'My Travel planner',
       cardBody:'My Travel planner is an AI-driven app that creates personalized travel itineraries by analyzing user preferences and real-time data, simplifying travel planning and enhancing the overall experience.',
-      href:'#'
+      href:'#',
+      scale: 0.9
     }
   ]
 
@@ -80,12 +112,12 @@ function Landing() {
 
   return (
     <>
-      <Hero img={hero} title="Next AI"/>
+      <Hero imgs={heros} index={heroidx}/>
       <Article title="About Next AI" body={about} cls=""/>
       <Article title="Our Story" body={story} cls=""/>
       <Wrapper wrapperCls="wrapper-flex wrapper-medium wrapper-center">
       {cards.map((item) => (
-        <NextCard key={item.key} className="landingFlex" img={item.img} imgtitle={item.title} cardTitle={item.cardTitle} cardBody={item.cardBody} href={item.href}/>
+        <NextCard key={item.key} className="landingFlex" img={item.img} imgtitle={item.title} cardTitle={item.cardTitle} cardBody={item.cardBody} href={item.href} mScale={item.scale}/>
       ))}
       </Wrapper>
       <Wrapper wrapperCls="wrapper-flex wrapper-medium wrapper-center">
@@ -108,7 +140,7 @@ function Landing() {
         <TextField variant="outlined"  name="email" placeholder="Email"/>
         </Wrapper>
         <Wrapper wrapperCls="wrapper-flex wrapper-medium wrapper-x-10">
-          <Button variant="contained"> Subscribe</Button>
+          <Button variant="contained" onClick={()=>{modal.current.handleClose();}} > Subscribe</Button>
           <Button variant="outlined" onClick={()=>{modal.current.handleClose();}} className="ml-4"> Cancel</Button>
         </Wrapper>
 

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import {Box, Divider, Drawer, IconButton, List, ListItem, ListItemButton, ListItemText, Typography, Button} from '@mui/material';
-
+import { Link } from 'react-router-dom';
 
 import {Menu as MenuIcon} from '@mui/icons-material';
 
@@ -25,7 +25,7 @@ function NavBurger(props){
       {navItems.map((item) => (
         <ListItem key={item.name} disablePadding>
           <ListItemButton sx={{ textAlign: 'center' }}>
-          <a href={item.path}><ListItemText primary={item.name} /></a>
+          <Link to="{item.path}"><ListItemText primary={item.name} /></Link>
           </ListItemButton>
         </ListItem>
       ))}

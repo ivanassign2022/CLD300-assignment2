@@ -9,7 +9,6 @@ import Library from './Library.jsx'
 
 import './css/index.css'
 
-
 const library = <App body={<Library/>} />
 
 ReactDOM.createRoot(document.getElementById('root')).render(
@@ -17,7 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path="/" element={<App />}>
           <Route index element={<Landing />} />
-          <Route path="library" element={<Library/>} />
+          <Route path="/library" element={<Library/>} />
         </Route>
       </Routes>
     </BrowserRouter>
